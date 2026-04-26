@@ -28,14 +28,14 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 st.title("💖 BARBIE'S SECRET CIPHER 💖")
-st.subheader("Cyber Sparkle Letter")
+st.subheader("Cyber Pink Letter")
 
-# 2. Secret Key 
+# 2. Secret Key (Using your personal key 262427)
 def generate_key(secret_word):
     key = base64.urlsafe_b64encode(secret_word.ljust(32)[:32].encode())
     return key
 
-user_key = generate_key("J262427")
+user_key = generate_key("262427")
 cipher = Fernet(user_key)
 
 # 3. UI Tabs
@@ -43,7 +43,7 @@ tab1, tab2 = st.tabs(["✨ HIDE A SECRET", "🔓 REVEAL THE MAGIC"])
 
 with tab1:
     st.write("Write something sweet to turn it into a glittery code:")
-    secret_text = st.text_area("Your Message:", placeholder="Hey Barbie! Let's watch a movie!")
+    secret_text = st.text_area("Your Message:", placeholder="Hey Barbie! Let's go to the dam...")
     if st.button("Sparkle-ify Message"):
         if secret_text:
             encrypted_text = cipher.encrypt(secret_text.encode()).decode()
@@ -53,13 +53,13 @@ with tab1:
             st.warning("A Barbie always has something to say!")
 
 with tab2:
-    st.write("Paste the glittery jumbled code here to read the secret:")
+    st.write("Paste the glittery code here to read the secret:")
     incoming_web = st.text_input("Enter Secret Code:")
     if st.button("Unlock the Journal"):
         try:
             decrypted_text = cipher.decrypt(incoming_web.encode()).decode()
-            st.snow() # Falling hearts/snow effec
             st.toast('Message Decrypted!', icon='✨')
+            st.markdown(f"### 💌 The Secret Message:\n**{decrypted_text}**")
         except:
             st.error("Oops! That's not the right key for this journal.")
 
