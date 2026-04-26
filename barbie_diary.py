@@ -59,7 +59,7 @@ with tab2:
         try:
             decrypted_text = cipher.decrypt(incoming_web.encode()).decode()
             st.snow() # Falling hearts/snow effect
-            st.markdown(f"### 💌 The Secret Message:\n**{decrypted_text}**")
+            st.toast('Message Decrypted!', icon='✨')
         except:
             st.error("Oops! That's not the right key for this journal.")
 
