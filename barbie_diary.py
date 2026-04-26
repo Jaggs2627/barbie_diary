@@ -58,7 +58,7 @@ with tab2:
     if st.button("Unlock the Journal"):
         try:
             decrypted_text = cipher.decrypt(incoming_web.encode()).decode()
-            st.snow() # Falling hearts/snow effect
+            st.snow() # Falling hearts/snow effec
             st.toast('Message Decrypted!', icon='✨')
         except:
             st.error("Oops! That's not the right key for this journal.")
