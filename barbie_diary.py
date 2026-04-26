@@ -43,7 +43,7 @@ tab1, tab2 = st.tabs(["✨ HIDE A SECRET", "🔓 REVEAL THE MAGIC"])
 
 with tab1:
     st.write("Write something sweet to turn it into a glittery code:")
-    secret_text = st.text_area("Your Message:", placeholder="Hey Barbie! Let's go to the dam...")
+    secret_text = st.text_area("Your Message:", placeholder="Hey Barbie! Let's watch a movie!")
     if st.button("Sparkle-ify Message"):
         if secret_text:
             encrypted_text = cipher.encrypt(secret_text.encode()).decode()
